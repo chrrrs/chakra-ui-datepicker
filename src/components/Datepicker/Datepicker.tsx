@@ -7,12 +7,27 @@ import {
   HStack,
   VStack
 } from "@chakra-ui/react";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { Input } from "../Input";
 import { InputLabel } from "../InputLabel";
 import { DateButton } from "../DateButton";
 import { YearSelect } from "../YearSelect";
 import { MonthSelect } from "../MonthSelect";
+
+import {
+  add,
+  eachDayOfInterval,
+  endOfMonth,
+  format,
+  getDay,
+  isEqual,
+  isSameDay,
+  isSameMonth,
+  isToday,
+  parse,
+  parseISO,
+  startOfToday
+} from "date-fns";
 
 export interface DatepickerProps {
   position?: "relative" | "absolute";
@@ -20,8 +35,17 @@ export interface DatepickerProps {
   endDateIcon?: ReactNode;
 }
 
+const today = startOfToday();
+
 export const Datepicker = (props: DatepickerProps) => {
   const { position = "relative", startDateIcon, endDateIcon } = props;
+
+  const [currentMonth, setCurrentMonth] = useState(format(today, "MMM-yyyy"));
+  const firstDayCurrentMonth = parse(currentMonth, "MMM-yyyy", new Date());
+  const days = eachDayOfInterval({
+    start: firstDayCurrentMonth,
+    end: endOfMonth(firstDayCurrentMonth)
+  });
 
   return (
     <Box position="relative">
@@ -69,32 +93,24 @@ export const Datepicker = (props: DatepickerProps) => {
             <HStack w="100%" flex="1">
               <Box flex="1">
                 <Grid templateColumns="repeat(7, 1fr)">
-                  <GridItem as="button">1</GridItem>
-                  <GridItem as="button">1</GridItem>
-                  <GridItem as="button">1</GridItem>
-                  <GridItem as="button">1</GridItem>
-                  <GridItem as="button">1</GridItem>
-                  <GridItem as="button">1</GridItem>
-                  <GridItem as="button">1</GridItem>
-                  <GridItem as="button">1</GridItem>
-                  <GridItem as="button">1</GridItem>
-                  <GridItem as="button">1</GridItem>
-                  <GridItem as="button">1</GridItem>
+                  {days.map((day, dayIdx) => (
+                    <GridItem as="button" key={dayIdx}>
+                      <time dateTime={format(day, "yyyy-MM-dd")}>
+                        {format(day, "d")}
+                      </time>
+                    </GridItem>
+                  ))}
                 </Grid>
               </Box>
               <Box flex="1">
                 <Grid templateColumns="repeat(7, 1fr)">
-                  <GridItem as="button">1</GridItem>
-                  <GridItem as="button">1</GridItem>
-                  <GridItem as="button">1</GridItem>
-                  <GridItem as="button">1</GridItem>
-                  <GridItem as="button">1</GridItem>
-                  <GridItem as="button">1</GridItem>
-                  <GridItem as="button">1</GridItem>
-                  <GridItem as="button">1</GridItem>
-                  <GridItem as="button">1</GridItem>
-                  <GridItem as="button">1</GridItem>
-                  <GridItem as="button">1</GridItem>
+                  {days.map((day, dayIdx) => (
+                    <GridItem as="button" key={dayIdx}>
+                      <time dateTime={format(day, "yyyy-MM-dd")}>
+                        {format(day, "d")}
+                      </time>
+                    </GridItem>
+                  ))}
                 </Grid>
               </Box>
             </HStack>
