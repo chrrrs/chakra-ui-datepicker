@@ -1,4 +1,12 @@
-import { Box, Button, HStack, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  chakra,
+  Grid,
+  GridItem,
+  HStack,
+  VStack
+} from "@chakra-ui/react";
 import { ReactNode } from "react";
 import { Input } from "../Input";
 import { InputLabel } from "../InputLabel";
@@ -53,7 +61,45 @@ export const Datepicker = (props: DatepickerProps) => {
                 <YearSelect month="April" defaultValue="2022" />
                 <MonthSelect />
               </HStack>
+              <HStack>
+                <YearSelect month="April" defaultValue="2022" />
+                <MonthSelect />
+              </HStack>
             </HStack>
+            <HStack w="100%" flex="1">
+              <Box flex="1">
+                <Grid templateColumns="repeat(7, 1fr)">
+                  <GridItem as="button">1</GridItem>
+                  <GridItem as="button">1</GridItem>
+                  <GridItem as="button">1</GridItem>
+                  <GridItem as="button">1</GridItem>
+                  <GridItem as="button">1</GridItem>
+                  <GridItem as="button">1</GridItem>
+                  <GridItem as="button">1</GridItem>
+                  <GridItem as="button">1</GridItem>
+                  <GridItem as="button">1</GridItem>
+                  <GridItem as="button">1</GridItem>
+                  <GridItem as="button">1</GridItem>
+                </Grid>
+              </Box>
+              <Box flex="1">
+                <Grid templateColumns="repeat(7, 1fr)">
+                  <GridItem as="button">1</GridItem>
+                  <GridItem as="button">1</GridItem>
+                  <GridItem as="button">1</GridItem>
+                  <GridItem as="button">1</GridItem>
+                  <GridItem as="button">1</GridItem>
+                  <GridItem as="button">1</GridItem>
+                  <GridItem as="button">1</GridItem>
+                  <GridItem as="button">1</GridItem>
+                  <GridItem as="button">1</GridItem>
+                  <GridItem as="button">1</GridItem>
+                  <GridItem as="button">1</GridItem>
+                </Grid>
+              </Box>
+            </HStack>
+
+            <chakra.div background="gray.300" />
             <Box d="flex" justifyContent="flex-end" w="100%">
               <Button>Clear</Button>
               <Button colorScheme="teal" ml="2">
