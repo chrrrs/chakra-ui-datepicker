@@ -93,6 +93,29 @@ export const Datepicker = (props: DatepickerProps) => {
             <HStack w="100%" flex="1">
               <Box flex="1">
                 <Grid templateColumns="repeat(7, 1fr)">
+                  <GridItem textAlign="center" color="gray.300">
+                    S
+                  </GridItem>
+                  <GridItem textAlign="center" color="gray.300">
+                    M
+                  </GridItem>
+                  <GridItem textAlign="center" color="gray.300">
+                    T
+                  </GridItem>
+                  <GridItem textAlign="center" color="gray.300">
+                    W
+                  </GridItem>
+                  <GridItem textAlign="center" color="gray.300">
+                    T
+                  </GridItem>
+                  <GridItem textAlign="center" color="gray.300">
+                    F
+                  </GridItem>
+                  <GridItem textAlign="center" color="gray.300">
+                    S
+                  </GridItem>
+                </Grid>
+                <Grid templateColumns="repeat(7, 1fr)">
                   {days.map((day, dayIdx) => (
                     <GridItem as="button" key={dayIdx}>
                       <time dateTime={format(day, "yyyy-MM-dd")}>
@@ -103,6 +126,29 @@ export const Datepicker = (props: DatepickerProps) => {
                 </Grid>
               </Box>
               <Box flex="1">
+                <Grid templateColumns="repeat(7, 1fr)">
+                  <GridItem textAlign="center" color="gray.300">
+                    S
+                  </GridItem>
+                  <GridItem textAlign="center" color="gray.300">
+                    M
+                  </GridItem>
+                  <GridItem textAlign="center" color="gray.300">
+                    T
+                  </GridItem>
+                  <GridItem textAlign="center" color="gray.300">
+                    W
+                  </GridItem>
+                  <GridItem textAlign="center" color="gray.300">
+                    T
+                  </GridItem>
+                  <GridItem textAlign="center" color="gray.300">
+                    F
+                  </GridItem>
+                  <GridItem textAlign="center" color="gray.300">
+                    S
+                  </GridItem>
+                </Grid>
                 <Grid templateColumns="repeat(7, 1fr)">
                   {days.map((day, dayIdx) => (
                     <GridItem as="button" key={dayIdx}>
