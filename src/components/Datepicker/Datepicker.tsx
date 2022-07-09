@@ -82,11 +82,23 @@ export const Datepicker = (props: DatepickerProps) => {
           <VStack w="100%" p="4">
             <HStack w="100%" flex="1">
               <HStack>
-                <YearSelect month="April" defaultValue="2022" />
+                <YearSelect
+                  month={format(
+                    parse(currentMonth, "MMM-yyyy", new Date()),
+                    "MMM"
+                  )}
+                  defaultValue="2022"
+                />
                 <MonthSelect />
               </HStack>
               <HStack>
-                <YearSelect month="April" defaultValue="2022" />
+                <YearSelect
+                  month={format(
+                    parse(currentMonth, "MMM-yyyy", new Date()),
+                    "MMM"
+                  )}
+                  defaultValue="2022"
+                />
                 <MonthSelect />
               </HStack>
             </HStack>
